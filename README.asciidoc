@@ -1,0 +1,16 @@
+== Weld PasteCode Example ==
+
+This example demonstrates the use of Weld in Java EE Environment. Contextual
+state management and dependency injection are handled by JSR-299. Transaction
+and persistence context management is handled by the EJB 3 container. No 
+alterations are required to be made to the Servlet container. All services
+are self-contained within the deployment.
+
+=== Features Covered (the list will increase) ===
+==== CDI ====
+- injecting into POJO, EJB (SFSB), Servlet
+- @ApplicationScoped, @Model, @SessionScoped annotations
+- producer named methods
+- Decorators
+
+// TODO: Add building / deployment instructions
