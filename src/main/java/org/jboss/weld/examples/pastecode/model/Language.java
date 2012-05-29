@@ -25,7 +25,6 @@ public enum Language {
     RUBY("rb", "Ruby", "rb"),
     SCALA("scl", "Scala", "scala"),
     SQL("sql", "Sql", "sql"),
-    VISUAL_BASIC("vb", "Visual Basic", "vb"),
     XML("xml", "XML", "xml");
 
     private final String extension;
