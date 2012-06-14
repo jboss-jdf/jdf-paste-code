@@ -21,8 +21,11 @@
  */
 package org.jboss.weld.examples.pastecode.session;
 
-import org.jboss.weld.examples.pastecode.model.CodeFragment;
-import org.jboss.weld.examples.pastecode.model.CodeFragment_;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateful;
 import javax.enterprise.event.Event;
@@ -32,15 +35,14 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+
+import org.jboss.weld.examples.pastecode.model.CodeFragment;
+import org.jboss.weld.examples.pastecode.model.CodeFragment_;
 
 /**
  * Implementation of {@link CodeFragmentManager}
@@ -51,14 +53,15 @@ import java.util.List;
 @Stateful
 public class CodeFragmentManagerImpl implements CodeFragmentManager {
 
+    private static final long serialVersionUID = -6552765736839897669L;
     // The number of code fragments to display per page
-    private static int PAGE_SIZE = 2;
+    private final static int PAGE_SIZE = 2;
 
     @Inject
-    private Event<CodeFragment> event;
+    private transient Event<CodeFragment> event;
 
     @PersistenceContext
-    private EntityManager entityManager;
+    private transient EntityManager entityManager;
 
     @Inject
     private HashComputer hashComputer;
@@ -93,13 +96,13 @@ public class CodeFragmentManagerImpl implements CodeFragmentManager {
             event.fire(code);
             // Make sure we have the latest version (with the generated id!)
             entityManager.refresh(code);
-            return new Integer(code.getId()).toString();
+            return code.getId().toString();
         }
     }
 
     public CodeFragment getCodeFragment(String id) {
         // If it's not an integer, it's a hash!
-        if (!isInteger(id)) {
+        if (!isLong(id)) {
             Query query = entityManager.createQuery("SELECT c FROM CodeFragment c WHERE hash = :hash");
             query.setParameter("hash", id);
 
@@ -112,7 +115,7 @@ public class CodeFragmentManagerImpl implements CodeFragmentManager {
                 return fragments.get(0);
             }
         } else {
-            CodeFragment c = entityManager.find(CodeFragment.class, Integer.parseInt(id));
+            CodeFragment c = entityManager.find(CodeFragment.class, Long.parseLong(id));
             if (c == null) {
                 throw new RuntimeException("No such fragment!");
             }
@@ -125,9 +128,9 @@ public class CodeFragmentManagerImpl implements CodeFragmentManager {
         }
     }
 
-    private static boolean isInteger(String string) {
+    private static boolean isLong(String string) {
         try {
-            Integer.parseInt(string);
+            Long.parseLong(string);
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -137,13 +140,11 @@ public class CodeFragmentManagerImpl implements CodeFragmentManager {
     @Produces
     @Named
     public List<CodeFragment> getRecentCodeFragments() {
-        Query query = entityManager.createQuery("SELECT c FROM CodeFragment c WHERE c.hash=null ORDER BY datetime DESC ");
+        TypedQuery<CodeFragment> query = entityManager.createQuery("SELECT c FROM CodeFragment c WHERE c.hash is null ORDER BY datetime DESC",
+                CodeFragment.class);
         query.setMaxResults(MAX_RECENT_FRAGMENTS);
 
-        @SuppressWarnings("unchecked")
-        List<CodeFragment> codes = query.getResultList();
-
-        return codes;
+        return query.getResultList();
     }
 
     private static boolean isEmpty(String string) {
@@ -175,7 +176,7 @@ public class CodeFragmentManagerImpl implements CodeFragmentManager {
             predicates.add(builder.between(root.get(CodeFragment_.datetime), codeFragment.getDatetime(), new Date()));
         }
 
-        criteria.where(predicates.toArray(new Predicate[0])).orderBy(builder.desc(root.get(CodeFragment_.datetime)));
+        criteria.where(predicates.toArray(new Predicate[predicates.size()])).orderBy(builder.desc(root.get(CodeFragment_.datetime)));
 
         Query q = entityManager.createQuery(criteria);
 

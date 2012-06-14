@@ -1,9 +1,11 @@
 package org.jboss.weld.examples.pastecode.session;
 
-import javax.ejb.Stateful;
-import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.LinkedList;
+
+import javax.ejb.Stateful;
+import javax.enterprise.context.SessionScoped;
 
 /**
  * Tracks the post made by the current user
@@ -12,7 +14,9 @@ import java.util.LinkedList;
  */
 @SessionScoped
 @Stateful // Adds passivation capabilities....
-public class PostTracker {
+public class PostTracker implements Serializable {
+
+    private static final long serialVersionUID = -2120112588011284764L;
 
     private LinkedList<Date> posts;
 

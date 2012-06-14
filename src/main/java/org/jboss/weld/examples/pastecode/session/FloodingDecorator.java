@@ -21,12 +21,11 @@
  */
 package org.jboss.weld.examples.pastecode.session;
 
-import org.jboss.weld.examples.pastecode.model.CodeFragment;
-
 import javax.decorator.Decorator;
 import javax.decorator.Delegate;
 import javax.inject.Inject;
-import java.io.Serializable;
+
+import org.jboss.weld.examples.pastecode.model.CodeFragment;
 
 /**
  * Prohibit posting more than 2 fragments a minute
@@ -34,13 +33,13 @@ import java.io.Serializable;
  * @author Pete Muir
  */
 @Decorator
-public abstract class FloodingDecorator implements CodeFragmentManager, Serializable {
+public abstract class FloodingDecorator implements CodeFragmentManager {
 
-    private static final long serialVersionUID = -4615837206290420112L;
+    private static final long serialVersionUID = 7162462761160386121L;
 
     @Inject
     @Delegate
-    private CodeFragmentManager codeFragmentManager;
+    private transient CodeFragmentManager codeFragmentManager;
 
     @Inject
     private PostTracker postTracker;

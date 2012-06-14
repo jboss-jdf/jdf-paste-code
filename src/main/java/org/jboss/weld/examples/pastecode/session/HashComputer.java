@@ -21,11 +21,13 @@
  */
 package org.jboss.weld.examples.pastecode.session;
 
-import org.jboss.weld.examples.pastecode.model.CodeFragment;
-
-import javax.ejb.Stateless;
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import javax.ejb.Stateless;
+
+import org.jboss.weld.examples.pastecode.model.CodeFragment;
 
 /**
  * Compute the hash for a {@link CodeFragment}
@@ -34,7 +36,9 @@ import java.security.NoSuchAlgorithmException;
  * @author Pete Muir
  */
 @Stateless
-public class HashComputer {
+public class HashComputer implements Serializable {
+
+    private static final long serialVersionUID = -6095640963224657171L;
 
     public String getHashValue(CodeFragment code) throws NoSuchAlgorithmException {
         String hashValue;
@@ -51,11 +55,11 @@ public class HashComputer {
         // make sure it contains a letter!
         strBuf.append("h");
 
-        for (int i = 0; i < buf.length; i++) {
-            if ((buf[i] & 0xff) < 0x10) {
+        for (byte aBuf : buf) {
+            if ((aBuf & 0xff) < 0x10) {
                 strBuf.append("0");
             }
-            strBuf.append(Long.toString(buf[i] & 0xff, 16));
+            strBuf.append(Long.toString(aBuf & 0xff, 16));
         }
         if (strBuf.length() <= 6) {
             while (strBuf.length() <= 6) {

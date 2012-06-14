@@ -14,7 +14,7 @@ import javax.faces.convert.FacesConverter;
 public class TruncatingConverter implements Converter {
 
     // The max length of the snippet we show
-    private static int TRIMMED_TEXT_LEN = 100;
+    private final static int TRIMMED_TEXT_LEN = 100;
 
     public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
         return arg2;

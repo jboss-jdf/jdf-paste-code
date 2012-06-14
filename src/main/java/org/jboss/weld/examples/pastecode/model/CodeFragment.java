@@ -21,6 +21,11 @@
  */
 package org.jboss.weld.examples.pastecode.model;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.enterprise.inject.Typed;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -31,8 +36,8 @@ import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import org.hibernate.envers.Audited;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -44,7 +49,9 @@ import static javax.persistence.GenerationType.AUTO;
  * @author Pete Muir
  */
 @Entity
-public class CodeFragment {
+@Audited
+@Typed()
+public class CodeFragment implements Serializable {
 
     private static final long MS_PER_SECOND = 1000;
     private static final long MS_PER_MINUTE = 60 * MS_PER_SECOND;
@@ -52,11 +59,12 @@ public class CodeFragment {
     private static final long MS_PER_DAY = 24 * MS_PER_HOUR;
 
     private static final SimpleDateFormat df = new SimpleDateFormat("d MMM");
+    private static final long serialVersionUID = -1369003119799094069L;
 
     @Id
     @GeneratedValue(strategy = AUTO)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date datetime;
@@ -72,11 +80,11 @@ public class CodeFragment {
 
     private String hash;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

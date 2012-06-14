@@ -29,7 +29,7 @@
             line below to use version 1.0.0.M10-redhat-1 which is a release certified
             to work with JBoss EAP 6. It requires you have access to the JBoss EAP 6
             maven repository. -->
-        <jboss.bom.version>1.0.0.M10</jboss.bom.version>
+        <jboss.bom.version>1.0.0.Final</jboss.bom.version>
     </properties>
 
     <dependencyManagement>
@@ -46,6 +46,14 @@
             <dependency>
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+                <version>${jboss.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Same as above, without Arquillian and added Hibernate jars -->
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
                 <version>${jboss.bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -89,13 +97,24 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>1.2.0.Final</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-envers</artifactId>
+          <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -130,10 +149,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jboss.arquillian.ajocado</groupId>
-            <artifactId>arquillian-ajocado-junit</artifactId>
-            <type>pom</type>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>arquillian-graphene</artifactId>
             <scope>test</scope>
+            <type>pom</type>
         </dependency>
 
     </dependencies>

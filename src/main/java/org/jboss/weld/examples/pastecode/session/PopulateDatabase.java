@@ -21,16 +21,6 @@
  */
 package org.jboss.weld.examples.pastecode.session;
 
-import org.jboss.weld.examples.pastecode.model.CodeFragment;
-import org.jboss.weld.examples.pastecode.model.Language;
-
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,6 +29,16 @@ import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.jboss.weld.examples.pastecode.model.CodeFragment;
+import org.jboss.weld.examples.pastecode.model.Language;
 
 /**
  * Populate the database with data.sql. Needed because import.sql doesn't
@@ -58,9 +58,6 @@ public class PopulateDatabase {
 
     @PersistenceContext
     private EntityManager entityManager;
-
-    @Inject
-    private UserTransaction utx;
 
     @PostConstruct
     public void startup() {

@@ -21,6 +21,7 @@
  */
 package org.jboss.weld.examples.pastecode.session;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +30,9 @@ import java.util.List;
  *
  * @author Martin Gencur
  */
-public class Paginator {
+public class Paginator implements Serializable {
 
+    private static final long serialVersionUID = -1849499591201968816L;
     private int recordsCount = 0;
     private int pagesCount = 0;
     private int numLinks = 8;

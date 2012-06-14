@@ -21,10 +21,10 @@
  */
 package org.jboss.weld.examples.pastecode.session;
 
-import org.jboss.weld.examples.pastecode.model.CodeFragment;
-
-import javax.ejb.Local;
+import java.io.Serializable;
 import java.util.List;
+
+import org.jboss.weld.examples.pastecode.model.CodeFragment;
 
 /**
  * Retrieval and addition of code fragments
@@ -32,8 +32,7 @@ import java.util.List;
  * @author Pete Muir
  * @author Martin Gencur
  */
-@Local
-public interface CodeFragmentManager {
+public interface CodeFragmentManager extends Serializable {
     /**
      * The number of code fragments to return in our recentCodeFragments query
      */
