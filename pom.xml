@@ -266,9 +266,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -327,7 +324,6 @@
                         <configuration>
                             <systemProperties>
                                 <arquillian.launch>jbossas-managed-7</arquillian.launch>
-                                <skip>false</skip>
                             </systemProperties>
                         </configuration>
                     </plugin>
@@ -371,7 +367,6 @@
                                 <arquillian.jboss_home>
                                     ${project.build.directory}/jboss-as-${jboss.as.version}
                                 </arquillian.jboss_home>
-                                <skip>false</skip>
                             </systemProperties>
                         </configuration>
                     </plugin>
