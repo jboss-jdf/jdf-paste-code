@@ -1,0 +1,331 @@
+!!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2010-01-01T08:01:01Z
+hash: null
+language: CSS
+note: ' '
+text: "div {\r\n   min-height: 500px;\r\n   height:auto !important;\r\n   height:\
+  \ 500px;\r\n}"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-02T08:01:01Z
+hash: null
+language: CSS
+note: ' '
+text: "div {\r\n   height: expression( this.scrollHeight < 501 ? \"500px\" : \"auto\"\
+  \ );\r\n}"
+user: {email: peter@mycompany.org, id: 2, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-02T08:01:01Z
+hash: null
+language: CSS
+note: ' '
+text: "a.GlobalOrangeButton span {\r\nbackground: transparent url(http://media-sprout.com/tutorials/web/CSSSprit-SlideButton/images/button_left_orange.png)\
+  \ no-repeat 0 0;\r\ndisplay: block;\r\nline-height: 22px;\r\npadding: 7px 0 5px\
+  \ 18px;\r\ncolor: #fff;\r\n}\r\n"
+user: {email: peter@mycompany.org, id: 2, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-02T08:01:01Z
+hash: null
+language: JAVASCRIPT
+note: ' '
+text: "var newPathname = \"\";\r\nfor ( i = 0; i pathArray.length; i++ ) {\r\n  newPathname\
+  \ += \"/\";\r\n  newPathname += pathArray[i];\r\n}"
+user: {email: john@example.com, id: 3, password: PASSWORD, username: john}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-03T08:01:01Z
+hash: null
+language: JAVASCRIPT
+note: ' '
+text: "<script type=\"text/javascript\">\r\n<!--\r\n    function toggle_visibility(id)\
+  \ {\r\n       var e = document.getElementById(id);\r\n"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-04T08:01:01Z
+hash: null
+language: JAVASCRIPT
+note: ' '
+text: "var myArray = [\"one\", \"two\", \"three\"];\r\n\r\n// console.log( myArray\
+  \ ) => [\"one\", \"two\", \"three\"]\r\n\r\nmyArray.length = 0;\r\n\r\n// console.log(\
+  \ myArray ) => []"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-04T08:01:01Z
+hash: null
+language: JAVASCRIPT
+note: ' '
+text: "function randRange(data) {\r\n       var newTime = data[Math.floor(data.length\
+  \ * Math.random())];\r\n       return newTime;\r\n}\r\n\r\nfunction toggleSomething()\
+  \ {\r\n       var timeArray = new Array(200, 300, 150, 250, 2000, 3000, 1000, 1500);\r\
+  \n\r\n       // do stuff, happens to use jQuery here (nothing else does)\r\n   \
+  \    $(\"#box\").toggleClass(\"visible\");\r\n\r\n       clearInterval(timer);\r\
+  \n       timer = setInterval(toggleSomething, randRange(timeArray));\r\n"
+user: {email: crazyman@jdf-paste.com, id: 5, password: PASSWORD, username: crazyman}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-05T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "public List<code> recentcodes()\r\n    {\r\n    \tQuery q = em.createQuery(\"\
+  SELECT c FROM code c WHERE hash=null ORDER BY datetime DESC \");\r\n    \tq.setMaxResults(MAX_codeS);\r\
+  \n    \tList<code> codes = q.getResultList();\r\n    \treturn codes;\r\n    }"
+user: {email: peter@mycompany.org, id: 2, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-05T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: " private void startOperation() throws HibernateException {\r\n        session\
+  \ = HibernateFactory.openSession();\r\n        tx = session.beginTransaction();\r\
+  \n    }"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-06T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "public List findAll() throws DataAccessLayerException{\r\n        List events\
+  \ = null;\r\n        try {\r\n            startOperation();\r\n            Query\
+  \ query = session.createQuery(\"from Event\");\r\n            events =  query.list();\r\
+  \n            tx.commit();\r\n        } catch (HibernateException e) {\r\n     \
+  \       handleException(e);\r\n        } finally {\r\n            HibernateFactory.close(session);\r\
+  \n        }\r\n        return events;\r\n    }\r\n"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-06T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "public Event find(Long id) throws DataAccessLayerException {\r\n        Event\
+  \ event = null;\r\n        try {\r\n            startOperation();\r\n          \
+  \  event = (Event) session.load(Event.class, id);\r\n            tx.commit();\r\n\
+  \        } catch (HibernateException e) {\r\n            handleException(e);\r\n\
+  \        } finally {\r\n            HibernateFactory.close(session);\r\n       \
+  \ }\r\n        return event;\r\n    }"
+user: {email: crazyman@jdf-paste.com, id: 5, password: PASSWORD, username: crazyman}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-07T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: " public void delete(Event event) throws DataAccessLayerException {\r\n    \
+  \    try {\r\n            startOperation();\r\n            session.delete(event);\r\
+  \n            tx.commit();\r\n        } catch (HibernateException e) {\r\n     \
+  \       handleException(e);\r\n        } finally {\r\n            HibernateFactory.close(session);\r\
+  \n        }\r\n    }"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-08T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "public void create(Event event) throws DataAccessLayerException {\r\n     \
+  \   try {\r\n            startOperation();\r\n            session.save(event);\r\
+  \n            tx.commit();\r\n        } catch (HibernateException e) {\r\n     \
+  \       handleException(e);\r\n        } finally {\r\n            HibernateFactory.close(session);\r\
+  \n        }\r\n    }"
+user: {email: peter@mycompany.org, id: 2, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-09T08:01:01Z
+hash: null
+language: PHP
+note: ' '
+text: "function build_calendar($month,$year,$dateArray) {\r\n\r\n     // Create array\
+  \ containing abbreviations of days of week.\r\n     $daysOfWeek = array(S,M,T,W,T,F,S);\r\
+  \n\r\n     // What is the first day of the month in question?\r\n     $firstDayOfMonth\
+  \ = mktime(0,0,0,$month,1,$year);\r\n\r\n     // How many days does this month contain?\r\
+  \n     $numberDays = date(t,$firstDayOfMonth);\r\n}"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-10T08:01:01Z
+hash: null
+language: PHP
+note: ' '
+text: "if ( !empty($_SERVER[HTTP_X_REQUESTED_WITH]) && strtolower($_SERVER[HTTP_X_REQUESTED_WITH])\
+  \ == xmlhttprequest )\r\n{\r\n       # Ex. check the query and serve requested data\r\
+  \n}"
+user: {email: john@example.com, id: 3, password: PASSWORD, username: john}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-11T08:01:01Z
+hash: null
+language: PHP
+note: ' '
+text: "<?php\r\n\r\nfunction getTwitterStatus($userid){\r\n$url = \"http://twitter.com/statuses/user_timeline/$userid.xml?count=1\"\
+  ;\r\n\r\n$xml = simplexml_load_file($url) or die(\"could not connect\");\r\n\r\n\
+  \       foreach($xml->status as $status){\r\n       $text = $status->text;\r\n \
+  \      }\r\n       echo $text;\r\n }\r\n\r\n//my user id kenrick1991\r\ngetTwitterStatus(\"\
+  kenrick1991\");\r\n\r\n?>"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-11T08:01:01Z
+hash: null
+language: PHP
+note: ' '
+text: "<?php\r\n  header( Location: http://www.yoursite.com/new_page.html ) ;\r\n\
+  ?>"
+user: {email: peter@mycompany.org, id: 2, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-12T08:01:01Z
+hash: null
+language: PHP
+note: ' '
+text: "function findexts ($filename) {\r\n\r\n       $filename = strtolower($filename)\
+  \ ;\r\n\r\n       $exts = split(\"[/\\\\.]\", $filename) ;\r\n\r\n       $n = count($exts)-1;\r\
+  \n\r\n       $exts = $exts[$n];\r\n\r\n       return $exts;\r\n\r\n}"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-01-12T08:01:01Z
+hash: null
+language: PHP
+note: ' '
+text: "function fileRead($file) {\r\n   $lines = file($file);\r\n   foreach ($lines\
+  \ as $line_num => $line) {\r\n      echo  $line,  </br>;\r\n   }\r\n}"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-12T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "import java.util.*;\r\n\r\nimport org.hibernate.*;\r\nimport org.hibernate.criterion.*;\r\
+  \n\r\npublic class Main {\r\n\r\n\r\n  public static void main(String[] args) {\r\
+  \n    HibernateUtil.setup(\"create table EVENTS ( uid int, name VARCHAR, start_Date\
+  \ date, duration int);\");\r\n\r\n    // hibernate code start\r\n\r\n\r\n      \
+  \  SimpleEventDao eventDao = new SimpleEventDao();\r\n        Event event = new\
+  \ Event();\r\n        event.setName(\"Create an Event\");\r\n\r\n        eventDao.create(event);\r\
+  \n\r\n        Event foundEvent = eventDao.find(/*event.getId()*/1L);\r\n\r\n   \
+  \     System.out.println(foundEvent.getName());\r\n\r\n\r\n        HibernateUtil.checkData(\"\
+  select uid, name from events\");\r\n    // hibernate code end\r\n  }\r\n\r\n}"
+user: {email: peter@mycompany.org, id: 2, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-16T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "import javax.swing.DefaultListModel;\r\nimport javax.swing.DropMode;\r\nimport\
+  \ javax.swing.JComboBox;\r\nimport javax.swing.JFrame;\r\nimport javax.swing.JLabel;\r\
+  \nimport javax.swing.JList;\r\nimport javax.swing.JPanel;\r\nimport javax.swing.JScrollPane;\r\
+  \nimport javax.swing.JTextField;\r\nimport javax.swing.TransferHandler;\r\n\r\n\
+  public class DropModeON {\r\n  public static void main(String[] args) {\r\n    JPanel\
+  \ north = new JPanel();\r\n    north.add(new JLabel(\"Drag from here:\"));\r\n \
+  \   JTextField field = new JTextField(10);\r\n    field.setDragEnabled(true);\r\n\
+  \    north.add(field);\r\n\r\n    final DefaultListModel listModel = new DefaultListModel();\r\
+  \n    listModel.addElement(\"first\");\r\n    listModel.addElement(\"second\");\r\
+  \n    final JList list = new JList(listModel);\r\n    list.setDragEnabled(true);\r\
+  \n\r\n    list.setTransferHandler(new TransferHandler() {\r\n      public boolean\
+  \ canImport(TransferHandler.TransferSupport support) {\r\n        if (!support.isDataFlavorSupported(DataFlavor.stringFlavor))\
+  \ {\r\n          return false;\r\n        }\r\n        JList.DropLocation dl = (JList.DropLocation)\
+  \ support.getDropLocation();\r\n        if (dl.getIndex() == -1) {\r\n         \
+  \ return false;\r\n        } else {\r\n          return true;\r\n        }\r\n \
+  \     }\r\n    }\r\n  }\r\n}"
+user: {email: crazyman@jdf-paste.com, id: 5, password: PASSWORD, username: crazyman}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-15T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "@Entity\r\npublic class Address {\r\n    @Id\r\n    private int id;\r\n   \
+  \ private String street;\r\n    private String city;\r\n    private String state;\r\
+  \n    private String zip;\r\n\r\n    public int getId() {\r\n        return id;\r\
+  \n    }\r\n\r\n    public void setId(int id) {\r\n        this.id = id;\r\n    }\r\
+  \n\r\n    public String getStreet() {\r\n        return street;\r\n    }\r\n\r\n\
+  \    public void setStreet(String address) {\r\n        this.street = address;\r\
+  \n    }\r\n\r\n    public String getCity() {\r\n        return city;\r\n    }\r\n\
+  \r\n    public void setCity(String city) {\r\n        this.city = city;\r\n    }\r\
+  \n\r\n    public String getState() {\r\n        return state;\r\n    }\r\n\r\n \
+  \   public void setState(String state) {\r\n        this.state = state;\r\n    }\r\
+  \n\r\n    public String getZip() {\r\n        return zip;\r\n    }\r\n\r\n    public\
+  \ void setZip(String zip) {\r\n        this.zip = zip;\r\n    }\r\n    public String\
+  \ toString() {\r\n        return \"Address id: \" + getId() +\r\n              \
+  \ \", street: \" + getStreet() +\r\n               \", city: \" + getCity() +\r\n\
+  \               \", state: \" + getState() +\r\n               \", zip: \" + getZip();\r\
+  \n    }\r\n\r\n}"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-18T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "import java.util.List;\r\n\r\nimport javax.persistence.EntityManager;\r\nimport\
+  \ javax.persistence.Query;\r\n\r\npublic class ProfessorService {\r\n  protected\
+  \ EntityManager em;\r\n\r\n  public ProfessorService(EntityManager em) {\r\n   \
+  \ this.em = em;\r\n  }\r\n\r\n  public List findWithAlias() {\r\n    Query query\
+  \ = em.createNativeQuery(\r\n        \"SELECT emp.emp_id AS emp_id, name, salary,\
+  \ manager_id, dept_id, address_id, \"\r\n            + \"address.id, street, city,\
+  \ state, zip \" + \"FROM emp, address \"\r\n            + \"WHERE address_id = id\"\
+  , \"ProfessorWithAddressColumnAlias\");\r\n    return query.getResultList();\r\n\
+  \  }\r\n\r\n}"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-19T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "@Entity\r\npublic class Department {\r\n  @Id\r\n  @GeneratedValue(strategy\
+  \ = GenerationType.IDENTITY)\r\n  private int id;\r\n\r\n  private String name;\r\
+  \n\r\n  public int getId() {\r\n    return id;\r\n  }\r\n\r\n  public void setId(int\
+  \ id) {\r\n    this.id = id;\r\n  }\r\n\r\n  public String getName() {\r\n    return\
+  \ name;\r\n  }\r\n\r\n  public void setName(String deptName) {\r\n    this.name\
+  \ = deptName;\r\n  }\r\n\r\n  public String toString() {\r\n    return \"Department\
+  \ id: \" + getId() + \", name: \" + getName();\r\n  }\r\n}\r\n"
+user: {email: crazyman@jdf-paste.com, id: 5, password: PASSWORD, username: crazyman}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-01T08:01:01Z
+hash: null
+language: JAVA
+note: ' '
+text: "import java.io.Reader;\r\nimport java.sql.Connection;\r\nimport java.sql.DriverManager;\r\
+  \nimport java.sql.ResultSet;\r\nimport java.sql.ResultSetMetaData;\r\nimport java.sql.Statement;\r\
+  \n\r\npublic class JPAUtil {\r\n  Statement st;\r\n\r\n  public JPAUtil() throws\
+  \ Exception{\r\n    Class.forName(\"org.hsqldb.jdbcDriver\");\r\n    System.out.println(\"\
+  Driver Loaded.\");\r\n    String url = \"jdbc:hsqldb:data/tutorial\";\r\n\r\n  \
+  \  Connection conn = DriverManager.getConnection(url, \"sa\", \"\");\r\n    System.out.println(\"\
+  Got Connection.\");\r\n    st = conn.createStatement();\r\n  }\r\n  public void\
+  \ executeSQLCommand(String sql) throws Exception {\r\n    st.executeUpdate(sql);\r\
+  \n  }\r\n  public void checkData(String sql) throws Exception {\r\n    ResultSet\
+  \ rs = st.executeQuery(sql);\r\n    ResultSetMetaData metadata = rs.getMetaData();\r\
+  \n\r\n    for (int i = 0; i < metadata.getColumnCount(); i++) {\r\n      System.out.print(\"\
+  \\t\"+ metadata.getColumnLabel(i + 1));\r\n    }\r\n    System.out.println(\"\\\
+  n----------------------------------\");\r\n\r\n    while (rs.next()) {\r\n     \
+  \ for (int i = 0; i < metadata.getColumnCount(); i++) {\r\n        Object value\
+  \ = rs.getObject(i + 1);\r\n        if (value == null) {\r\n          System.out.print(\"\
+  \\t       \");\r\n        } else {\r\n          System.out.print(\"\\t\"+value.toString().trim());\r\
+  \n        }\r\n      }\r\n      System.out.println(\"\");\r\n    }\r\n  }\r\n}"
+user: {email: graham@test.com, id: 4, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.CodeFragment
+datetime: 2009-02-01T08:01:01Z
+hash: null
+language: JAVA
+note: Some note
+text: "package org.jboss.jdf.examples.pastie.session;\r\n\r\nimport java.util.List;\r\
+  \n\r\nimport javax.ejb.Stateful;\r\nimport javax.annotation.PostConstruct;\r\nimport\
+  \ javax.annotation.Resource;\r\nimport java.io.Serializable;\r\nimport javax.ejb.EJBContext;\r\
+  \nimport javax.ejb.Stateless;\r\nimport javax.ejb.TransactionAttribute;\r\nimport\
+  \ javax.ejb.TransactionAttributeType;\r\nimport javax.persistence.*;\r\nimport org.jboss.jdf.examples.pastie.model.code;\r\
+  \nimport javax.inject.*;\r\nimport javax.enterprise.context.SessionScoped;\r\nimport\
+  \ javax.enterprise.inject.Produces;\r\n\r\n/**\r\n * Session Bean implementation\
+  \ class HistoryBean\r\n */\r\n\r\n@SessionScoped\r\n@Named(\"history\")\r\n@Stateful\r\
+  \npublic class HistoryBean implements History, Serializable\r\n{\r\n\r\n\tprivate\
+  \ static final long serialVersionUID = 20L;\r\n\r\n\ttransient @Inject codeEAO eao;\r\
+  \n\r\n\ttransient private @Inject PastieUtils utils;\r\n\r\n\t//transient private\
+  \ @Inject QueryInfo info;\r\n\r\n\tprivate QueryInfo info;\r\n\r\n\r\n\r\n\tprivate\
+  \ List<code> codes;\r\n\r\n\tprivate boolean firstAccess = true;\r\n\r\n\tprivate\
+  \ int TRIMMED_TEXT_LEN = 150;\r\n\r\n\tprivate code searchItem;\r\n\r\n\tprivate\
+  \ int page = 0;\r\n\r\n\r\n\r\n\tpublic HistoryBean()\r\n    {\r\n    }\r\n\r\n\t\
+  @PostConstruct\r\n\tpublic void initialize()\r\n\t{\r\n\t\tthis.searchItem = new\
+  \ code();\r\n\t\tthis.info = new QueryInfo();\r\n\t}\r\n\r\n    public List<code>\
+  \ getcodes()\r\n    {\r\n  \t   return this.codes;\r\n    }\r\n\r\n    public void\
+  \ loadcode()\r\n    {\r\n    \tif (firstAccess)\r\n    \t{\r\n\t    \tthis.codes\
+  \ = eao.allcodes();\r\n\r\n\t        for(int i=0; i!=this.codes.size();i++)\r\n\t\
+  \        {\r\n\t     \t   String s = this.codes.get(i).getText();\r\n\t     \t \
+  \  //this.codes.get(i).setText(s.substring(0, s.length() > TRIMMED_TEXT_LEN ? TRIMMED_TEXT_LEN\
+  \ : s.length()));\r\n\t        }\r\n\t        firstAccess = false;\r\n    \t}\r\n\
+  \    }\r\n\r\n    public void setcodes(List<code> codes) {\r\n\t\tthis.codes = codes;\r\
+  \n\t}\r\n\r\n    @Produces @Named(\"searchItem\")\r\n\tpublic code getSearchItem()\
+  \ {\r\n\t\treturn searchItem;\r\n\t}\r\n\r\n\tpublic void setSearchItem(code searchItem)\
+  \ {\r\n\t\tthis.searchItem = searchItem;\r\n\t}\r\n\r\n\tpublic String search()\r\
+  \n\t{\r\n\t\tthis.codes = eao.searchcodes(this.searchItem, this.page, this.info);\r\
+  \n\r\n\t\treturn \"history\";\r\n\t}\r\n\r\n\r\n\tpublic int getPage() {\r\n\t\t\
+  return page;\r\n\t}\r\n\r\n\tpublic void setPage(int page) {\r\n\t\tthis.page =\
+  \ page;\r\n\t}\r\n\r\n\r\n\tpublic QueryInfo getInfo() {\r\n\t\treturn info;\r\n\
+  \t}\r\n\r\n\tpublic void setInfo(QueryInfo info) {\r\n\t\tthis.info = info;\r\n\t\
+  }\r\n}"
+user: {email: martin@cdi101.com, id: 1, password: PASSWORD, username: martin}

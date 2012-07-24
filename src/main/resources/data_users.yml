@@ -1,0 +1,6 @@
+!!org.jboss.jdf.examples.pastecode.model.User {email: martin@cdi101.com, password: PASSWORD, username: martin}
+--- !!org.jboss.jdf.examples.pastecode.model.User {email: peter@mycompany.org, password: PASSWORD, username: peter}
+--- !!org.jboss.jdf.examples.pastecode.model.User {email: john@example.com, password: PASSWORD, username: john}
+--- !!org.jboss.jdf.examples.pastecode.model.User {email: graham@test.com, password: PASSWORD, username: graham}
+--- !!org.jboss.jdf.examples.pastecode.model.User {email: crazyman@jdf-paste.com, password: PASSWORD, username: crazyman}
+--- !!org.jboss.jdf.examples.pastecode.model.User {email: anon@jdf-paste.com, password: jdf-paste-code, username: Anonymous}
