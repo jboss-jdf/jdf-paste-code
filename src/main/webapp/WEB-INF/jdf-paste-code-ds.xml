@@ -28,6 +28,7 @@
     <datasource jndi-name="java:jboss/datasources/jdfPasteCodeDS"
                 pool-name="jdf-paste-code-pool" enabled="true"
                 use-java-context="true">
+        <!-- In memory database -->
         <connection-url>jdbc:h2:mem:jdf-paste-code;DB_CLOSE_ON_EXIT=FALSE</connection-url>
         <driver>h2</driver>
         <security>
